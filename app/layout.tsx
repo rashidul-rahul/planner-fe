@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "FlowDay — Personal Planner & Habit Tracker",
-  description:
-    "A premium personal productivity dashboard for managing habits, daily tasks, and tracking your progress.",
-  keywords: ["habit tracker", "planner", "productivity", "dashboard", "FlowDay"],
-  authors: [{ name: "FlowDay" }],
+  title: `${siteConfig.name} — Personal Planner & Habit Tracker`,
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.author.name }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

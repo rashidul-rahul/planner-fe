@@ -2,26 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-    LayoutDashboard,
-    CheckSquare,
-    CalendarDays,
-    BarChart3,
-    StickyNote,
-    Settings,
-    Zap,
-    Flame,
-} from "lucide-react";
+import { Zap, Flame } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-    { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, href: "/dashboard" },
-    { id: "habits", label: "Habits", icon: CheckSquare, href: "/habits" },
-    { id: "planner", label: "Planner", icon: CalendarDays, href: "/planner" },
-    { id: "analytics", label: "Analytics", icon: BarChart3, href: "/analytics" },
-    { id: "notes", label: "Notes", icon: StickyNote, href: "/notes" },
-    { id: "settings", label: "Settings", icon: Settings, href: "/settings" },
-];
+import { mainNavItems } from "@/constants/navigation";
 
 export function AppSidebar() {
     const pathname = usePathname();
@@ -44,7 +27,7 @@ export function AppSidebar() {
                     Menu
                 </p>
                 <ul className="space-y-0.5">
-                    {navItems.map((item) => {
+                    {mainNavItems.map((item) => {
                         const Icon = item.icon;
                         const active = pathname === item.href || pathname.startsWith(item.href + "/");
                         return (
